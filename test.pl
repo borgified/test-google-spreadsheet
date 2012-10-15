@@ -23,15 +23,21 @@ my $spreadsheet = $service->spreadsheet(
 # find a worksheet by title
 my $worksheet = $spreadsheet->worksheet(
 	{
-		title => 'Sheet1'
+		title => 'Keyword report'
 	}
 );
 
+#
+## get a cell
+#my $cell = $worksheet->cell({col => 1, row => 1});
+#
+#
+#foreach my $key (keys %$cell){
+#	print "$key $$cell{$key}\n";
+#}
 
-# get a cell
-my $cell = $worksheet->cell({col => 1, row => 1});
-
-
-foreach my $key (keys %$cell){
-	print "$key $$cell{$key}\n";
+my $x=3;
+while(defined(my $cell = $worksheet->cell({col=>2,row=>$x}))){
+	print "$$cell{'content'}\n";
+	$x++;
 }
