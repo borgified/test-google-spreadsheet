@@ -23,7 +23,7 @@ my $spreadsheet = $service->spreadsheet(
 # find a worksheet by title
 my $worksheet = $spreadsheet->worksheet(
 	{
-		title => 'Keyword report'
+		title => 'Sheet1'
 	}
 );
 
@@ -42,3 +42,4 @@ foreach my $row (@rows){
 
 }
 
+print keys %db;
