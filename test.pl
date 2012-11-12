@@ -23,10 +23,9 @@ my $spreadsheet = $service->spreadsheet(
 # find a worksheet by title
 my $worksheet = $spreadsheet->worksheet(
 	{
-		title => 'Sheet1'
+		title => 'Keyword report'
 	}
 );
-
 
 my @rows = $worksheet->rows;
 
