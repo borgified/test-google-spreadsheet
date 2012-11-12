@@ -28,10 +28,18 @@ my $worksheet = $spreadsheet->worksheet(
 );
 
 
-# get a cell
-my $cell = $worksheet->cell({col => 1, row => 1});
+my @rows = $worksheet->rows;
 
+my %db; #holds callsign and forum username equivalences
+#key = callsign
+#value = forumname
 
-foreach my $key (keys %$cell){
-	print "$key $$cell{$key}\n";
+foreach my $row (@rows){
+
+	my $callsign ="${$row->content}{'enterapilotscallsign'}";
+	my $forumname ="${$row->content}{'entertheircorrespondingforumname'}";
+
+	$db{"$callsign"}="$forumname";
+
 }
+
